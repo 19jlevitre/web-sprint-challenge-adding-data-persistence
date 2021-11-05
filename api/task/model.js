@@ -19,20 +19,20 @@ async function findAll() {
 }
 
 async function findById(id) {
-    const rows = await db('projects')
+    const rows = await db('tasks')
     .select(
-    'project_id',
-    'project_name',
-    'project_description',
-    'project_completed'
+    'task_id',
+    'task_description',
+    'task_notes',
+    'task_completed'
     )
-    .where('project_id', id).first()
+    .where('task_id', id).first()
     return rows
 }
 
-async function add(project) {
-    return await db('projects').insert(project)
-    .then(async id => {
+async function add(task) {
+    return await db('tasks').insert(task)
+    .then(id => {
     return findById(id)
     })
     

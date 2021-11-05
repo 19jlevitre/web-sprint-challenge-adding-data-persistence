@@ -15,14 +15,14 @@ router.get('/', (req,res,next) => {
     .catch(next)
 })
 
-// router.post('/', (req, res, next) => {
-//     const project = req.body
+router.post('/', (req, res, next) => {
+    const task = req.body
 
-//     Project.add(project)
-//     .then(project => {
-//         console.log(project)
-//      res.status(201).json({...project, project_completed: !!project.project_completed})
-//     })
-//     .catch(next)
-// })
+    Task.add(task)
+    .then(task => {
+        console.log(task)
+     res.status(201).json({...task, task_completed: !!task.task_completed})
+    })
+    .catch(next)
+})
 module.exports = router
